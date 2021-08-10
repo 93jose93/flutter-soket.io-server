@@ -27,9 +27,24 @@
        socket.emit('mensaje', { nombre: 'Fernando' });
        
        //servidor responde
+       /*
        socket.on('mensaje', function( payload ){
             console.log('Escuchando:', payload );
        });
+       */
+  
+       //este mensaje biene del servidor scoket y que lor ecibe desde flutter
+       socket.on('nuevo-mensaje', function( payload ){
+            console.log('Escuchando:', payload );
+       });
+
+       //imprimir las bandas
+       socket.on('active-bands', function( bands ){
+            console.clear();
+            console.table( bands );
+       });
+
+
        
 
     </script>
